@@ -9,12 +9,11 @@ data = pd.read_csv("50_states.csv")
 
 # Create a list of states with their coordinates
 statesList = data.to_dict(orient="records")
-quizz = QuizzBrain(statesList)
-screen = Screen("U.S. States Game", "blank_states_img.gif")
-
 game_start = time.time()
-timer = 0
 is_timer_active = True
+timer = 0
+quizz = QuizzBrain(statesList)
+screen = Screen(f"U.S. States Game", "blank_states_img.gif")
 
 
 def keep_time():

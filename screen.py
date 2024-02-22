@@ -49,15 +49,7 @@ class Screen:
         )
 
     def display_timer(self, timer):
-        self.timer_turtle.clear()
-        self.timer_turtle.penup()
-        self.timer_turtle.hideturtle()
-        self.timer_turtle.goto(0, -300)
-        self.timer_turtle.write(
-            f"Time: {timer} seconds",
-            align="center",
-            font=("Poppins", 18, "normal"),
-        )
+        self.screen.title(f"U.S. States Game | Time: {timer} seconds ")
 
     def display_welcome_message(self, message):
         self.welcome_turtle.clear()
