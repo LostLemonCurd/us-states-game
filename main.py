@@ -14,13 +14,15 @@ is_timer_active = True
 timer = 0
 quizz = QuizzBrain(statesList)
 screen = Screen(f"U.S. States Game", "blank_states_img.gif")
+total_states = quizz.total_states
+score = 0
 
 
 def keep_time():
     global timer
     if is_timer_active:
         timer += 1
-        screen.display_timer(timer)
+        screen.display_timer(timer, score, total_states)
         screen.screen.ontimer(keep_time, 1000)
 
 
@@ -38,10 +40,9 @@ while quizz.is_there_more_states():
     if answer:
         screen.display_message(f"Correct! 🚀", "green")
         screen.place_state_on_map(answer[1]["name"], answer[1]["x"], answer[1]["y"])
-        screen.display_score(quizz.score, quizz.total_states)
+        score = quizz.get_score()
     else:
         screen.display_message(f"Wrong! ❌", "red")
-        screen.display_score(quizz.score, quizz.total_states)
 print(f"🍾🎊 And it's over! {quizz.display_score()}. 🎊🍾")
 is_timer_active = False
 screen.display_message(f"🍾🎊 And it's over! {quizz.display_score()}. 🎊🍾", "purple")

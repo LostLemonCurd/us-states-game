@@ -48,8 +48,10 @@ class Screen:
             font=("Poppins", 18, "normal"),
         )
 
-    def display_timer(self, timer):
-        self.screen.title(f"U.S. States Game | Time: {timer} seconds ")
+    def display_timer(self, timer, score, total_score):
+        self.screen.title(
+            f"U.S. States Game | Time: {timer} seconds | Score: {score} / {total_score}"
+        )
 
     def display_welcome_message(self, message):
         self.welcome_turtle.clear()

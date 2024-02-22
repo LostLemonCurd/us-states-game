@@ -29,6 +29,9 @@ class QuizzBrain:
     def get_state_coordinates(self, state_name, x, y):
         return {"name": state_name, "x": x, "y": y}
 
+    def get_score(self):
+        return self.score
+
     def end_game(self):
         self.display_score()
         return
