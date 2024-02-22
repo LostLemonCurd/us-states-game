@@ -68,3 +68,7 @@ class Screen:
         self.state_turtle.hideturtle()
         self.state_turtle.goto(x, y)
         self.state_turtle.write(state, align="center")
+
+    def place_all_states_on_map(self, statesList):
+        for state in statesList:
+            self.place_state_on_map(state["state"], state["x"], state["y"])

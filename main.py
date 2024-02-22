@@ -37,13 +37,16 @@ while quizz.is_there_more_states():
         break
     answer = quizz.ask_user_input(user_answer)
 
-    if answer:
+    if answer and answer[0] == True:
         screen.display_message(f"Correct! 🚀", "green")
         screen.place_state_on_map(answer[1]["name"], answer[1]["x"], answer[1]["y"])
         score = quizz.get_score()
+    elif answer == "Already Found!":
+        screen.display_message(f"Already Found! 🤷🏽‍♂️", "orange")
     else:
         screen.display_message(f"Wrong! ❌", "red")
 print(f"🍾🎊 And it's over! {quizz.display_score()}. 🎊🍾")
 is_timer_active = False
 screen.display_message(f"🍾🎊 And it's over! {quizz.display_score()}. 🎊🍾", "purple")
+screen.place_all_states_on_map(statesList)
 turtle.exitonclick()

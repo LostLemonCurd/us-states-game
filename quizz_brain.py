@@ -3,12 +3,16 @@ class QuizzBrain:
         self.statesList = statesList
         self.score = 0
         self.total_states = 50
+        self.found_states = []
 
     def check_answer(self, answer):
         for state_data in self.statesList:
+            if answer.lower() in self.found_states:
+                return "Already Found!"
             if answer.lower() == state_data["state"].lower():
                 self.score += 1
                 self.statesList.remove(state_data)
+                self.found_states.append(state_data["state"].lower())
                 return True, self.get_state_coordinates(
                     state_data["state"], state_data["x"], state_data["y"]
                 )
